@@ -1,3 +1,5 @@
+package UiUtils;
+
 import org.openqa.selenium.WebDriver;
 
 public class Homepage {
@@ -8,9 +10,11 @@ public class Homepage {
         this.driver = driver;
     }
 
-    public SearchLocation searchforlocation() {
-//        searchText();
+    public SearchLocation fromHomePage() {
         return new SearchLocation(driver);
     }
 
+    public WeatherForecast fromWeatherForecastPage() {
+        return new WeatherForecast(driver);
+    }
 }

@@ -1,10 +1,12 @@
+import UiUtils.SearchLocation;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 class BaseTest {
+
+    public final static String homepagetitle = "Local, National, & Global Daily Weather Forecast | AccuWeather";
 
     WebDriver driver;
     SearchLocation home;
@@ -13,10 +15,6 @@ class BaseTest {
     void setup() {
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
         driver = new ChromeDriver();
-    }
-
-    @BeforeEach
-    void load() {
         driver.get("https://www.accuweather.com/");
         home = new SearchLocation(driver);
     }

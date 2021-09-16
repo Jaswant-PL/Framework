@@ -1,22 +1,29 @@
+package UiUtils;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SearchLocation {
 
     WebDriver driver;
-    By searchTextBox = By.className("search-input");
-    By searchIcon = By.cssSelector("[data-qa='searchIcon']");
+    private By searchTextBox = By.className("search-input");
+    private By searchIcon = By.className("icon-search");
 
     public SearchLocation(WebDriver driver) {
         this.driver = driver;
     }
 
-    private void enterText(String search) {
+    public void enterText(String search) {
         driver.findElement(searchTextBox).sendKeys(search);
     }
 
-    public void search(String searchText) {
+    public void searchText(String searchText) {
         enterText(searchText);
         driver.findElement(searchIcon).click();
     }
+
+    public WeatherForecast fromWeatherForecastPage() {
+        return new WeatherForecast(driver);
+    }
+
 }
